@@ -32,25 +32,14 @@ const App = () => {
       />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <AnimatePresence>
-          {links.filter(filterLinks).length === 0 ? (
-            <div className="text-center py-12 text-gray-400">
-              No se encontraron enlaces
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {links.filter(filterLinks).map(link => (
-                <LinkCard
-                  key={link.id}
-                  link={link}
-                  handleDeleteLink={handleDeleteLink}
-                  setEditLink={setEditLink}
-                  setShowModal={setShowModal}
-                />
-              ))}
-            </div>
-          )}
-        </AnimatePresence>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-4">
+          {links.filter(filterLinks).map(link => (
+            <LinkCard
+              key={link.id}
+              link={link}
+            />
+          ))}
+        </div>
       </main>
 
       {showModal && (

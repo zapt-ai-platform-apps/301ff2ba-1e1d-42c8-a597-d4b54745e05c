@@ -15,21 +15,9 @@
 }
 
 @layer components {
-  .gradient-border {
-    @apply relative bg-white before:absolute before:-inset-[1px] before:rounded-2xl before:bg-gradient-to-r before:from-purple-500 before:to-cyan-400 before:content-[''] hover:before:opacity-100;
-    
-    &::before {
-      @apply opacity-0 transition-opacity duration-300;
-    }
-    
-    > div {
-      @apply relative h-full rounded-2xl bg-white;
-    }
-  }
-
-  .line-clamp-3 {
+  .line-clamp-1 {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
