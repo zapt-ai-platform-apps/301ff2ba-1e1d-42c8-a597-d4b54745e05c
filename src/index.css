@@ -4,13 +4,34 @@
 
 @layer base {
   :root {
-    --color-primary: 139 92 246;
-    --color-secondary: 14 165 233;
-    --color-background: 249 250 251;
+    --color-primary: 0 122 255;  /* iOS System Blue */
+    --color-secondary: 88 86 214;  /* iOS System Purple */
+    --color-background: 242 242 247;  /* iOS System Gray 6 */
   }
 
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  .ios-icon-style {
+    @apply bg-white/90 backdrop-blur-sm border border-gray-200/50;
+  }
+
+  .ios-icon-inner {
+    @apply shadow-inner;
+  }
+
+  .ios-app-label {
+    @apply font-normal text-[#1D1D1F] tracking-tight;
+  }
+
+  .ios-status-bar {
+    height: 44px;
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+
+  .glass-search {
+    @apply bg-gray-100/50 backdrop-blur-sm;
   }
 }
 
@@ -24,5 +45,11 @@
 
   .smooth-transition {
     @apply transition-all duration-300 ease-out;
+  }
+
+  .ios-button {
+    @apply bg-[rgb(var(--color-primary))] text-white rounded-xl px-4 py-2 
+           shadow-sm hover:shadow-md active:scale-95 cursor-pointer 
+           flex items-center justify-center gap-2;
   }
 }

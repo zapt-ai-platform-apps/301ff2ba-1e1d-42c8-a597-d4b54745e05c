@@ -13,7 +13,7 @@ const useLinksManager = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editLink, setEditLink] = useState(null);
-  const [availableTags] = useState(['trabajo', 'personal', 'herramientas', 'productividad']);
+  const [availableTags] = useState(['Herramientas', 'Productividad', 'Comunicación', 'Almacenamiento', 'Sistema', 'Tienda', 'Bienestar']);
 
   useEffect(() => {
     setLinks(demoLinks);

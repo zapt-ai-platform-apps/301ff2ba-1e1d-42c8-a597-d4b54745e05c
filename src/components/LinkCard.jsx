@@ -7,10 +7,11 @@ const LinkCard = ({ link }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      whileHover={{ y: -4 }}
-      className="flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="group flex flex-col items-center p-2 bg-iosLight rounded-2xl shadow-ios-medium hover:shadow-ios-large transition-all duration-200 cursor-pointer"
     >
-      <div className="w-full aspect-square mb-3 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center">
+      <div className="w-full aspect-square mb-2 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center">
         <img 
           src="PLACEHOLDER"
           alt={link.title}
@@ -19,7 +20,7 @@ const LinkCard = ({ link }) => {
         />
       </div>
       
-      <span className="text-sm font-medium text-gray-700 text-center px-2 line-clamp-1">
+      <span className="text-xs font-medium text-iosDark text-center px-1 line-clamp-1 group-hover:text-primary transition-colors">
         {link.title}
       </span>
       

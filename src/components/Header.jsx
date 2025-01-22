@@ -4,24 +4,24 @@ import { motion } from 'framer-motion';
 
 const Header = ({ searchQuery, setSearchQuery, setShowModal }) => {
   return (
-    <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+    <header className="bg-iosLight/80 backdrop-blur-xl border-b border-gray-200/80 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.h1 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+            className="text-xl font-semibold text-iosDark pl-2"
           >
-            LinkFlow
+            Mis Enlaces
           </motion.h1>
           
-          <div className="flex items-center gap-4 w-full max-w-2xl">
+          <div className="flex items-center gap-3 w-full max-w-2xl">
             <div className="relative flex-1">
-              <FiSearch className="absolute left-4 top-3.5 text-gray-400" />
+              <FiSearch className="absolute left-4 top-3.5 text-iosGray" />
               <input
                 type="text"
-                placeholder="Buscar enlaces..."
-                className="pl-12 pr-4 py-3 w-full rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent box-border smooth-transition"
+                placeholder="Buscar"
+                className="pl-12 pr-4 py-2.5 w-full rounded-xl bg-gray-100/80 border-0 focus:ring-2 focus:ring-primary focus:bg-gray-200/50 box-border transition-all duration-200"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -31,10 +31,9 @@ const Header = ({ searchQuery, setSearchQuery, setShowModal }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowModal(true)}
-              className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-xl hover:shadow-lg smooth-transition flex items-center gap-2 cursor-pointer"
+              className="w-11 h-11 flex items-center justify-center bg-primary rounded-full shadow-ios-button cursor-pointer"
             >
-              <FiPlus className="text-lg" />
-              <span className="hidden sm:inline">Nuevo</span>
+              <FiPlus className="text-xl text-iosLight" />
             </motion.button>
           </div>
         </div>
