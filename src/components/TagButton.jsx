@@ -7,8 +7,8 @@ const TagButton = ({ tag, isSelected, onToggle }) => {
       onClick={() => onToggle(tag)}
       className={`px-3 py-1.5 rounded-full flex items-center gap-2 cursor-pointer transition-all ${
         isSelected
-          ? 'bg-primary text-iosLight shadow-ios-button'
-          : 'bg-gray-100 text-iosGray hover:bg-gray-200'
+          ? 'bg-primary text-white shadow-ios-button'
+          : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
       }`}
     >
       {tag}

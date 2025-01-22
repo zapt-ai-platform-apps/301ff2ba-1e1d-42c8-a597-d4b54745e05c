@@ -24,35 +24,41 @@ const App = () => {
   } = useLinksManager();
 
   return (
-    <div className="min-h-screen bg-iosLight">
-      <Header 
-        searchQuery={searchQuery} 
-        setSearchQuery={setSearchQuery} 
-        setShowModal={setShowModal}
-      />
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
-          {links.filter(filterLinks).map(link => (
-            <LinkCard
-              key={link.id}
-              link={link}
-            />
-          ))}
+    <div className="min-h-screen bg-iosDark flex items-center justify-center p-4">
+      <div className="w-full max-w-[430px] h-[932px] bg-iosDark rounded-[50px] shadow-iphone overflow-hidden relative">
+        <div className="absolute top-0 left-0 right-0 h-8 bg-iosDark z-50">
+          <div className="w-20 h-1.5 bg-black/80 rounded-full mx-auto mt-2"></div>
         </div>
-      </main>
-
-      {showModal && (
-        <LinkFormModal
-          existingLink={editLink}
-          availableTags={availableTags}
-          onClose={() => {
-            setShowModal(false);
-            setEditLink(null);
-          }}
-          onSubmit={editLink ? handleUpdateLink : handleAddLink}
+        
+        <Header 
+          searchQuery={searchQuery} 
+          setSearchQuery={setSearchQuery} 
+          setShowModal={setShowModal}
         />
-      )}
+
+        <main className="h-[calc(100%-64px)] overflow-y-auto">
+          <div className="grid grid-cols-4 gap-2 p-4">
+            {links.filter(filterLinks).map(link => (
+              <LinkCard
+                key={link.id}
+                link={link}
+              />
+            ))}
+          </div>
+        </main>
+
+        {showModal && (
+          <LinkFormModal
+            existingLink={editLink}
+            availableTags={availableTags}
+            onClose={() => {
+              setShowModal(false);
+              setEditLink(null);
+            }}
+            onSubmit={editLink ? handleUpdateLink : handleAddLink}
+          />
+        )}
+      </div>
     </div>
   );
 };
