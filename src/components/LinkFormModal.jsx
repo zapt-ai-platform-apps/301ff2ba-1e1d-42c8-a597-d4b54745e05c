@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import ModalLayout from './ModalLayout';
-import TagButton from './TagButton';
+import LinkFormContent from './LinkFormContent';
 
 const LinkFormModal = ({ existingLink, availableTags, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -37,69 +36,15 @@ const LinkFormModal = ({ existingLink, availableTags, onClose, onSubmit }) => {
       title={existingLink ? 'Editar Enlace' : 'Nuevo Enlace'}
       onClose={onClose}
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">Título *</label>
-          <input
-            type="text"
-            required
-            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 box-border"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">URL *</label>
-          <input
-            type="url"
-            required
-            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 box-border"
-            value={formData.url}
-            onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1">Descripción</label>
-          <textarea
-            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 box-border"
-            rows="3"
-            value={formData.description}
-            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">Etiquetas</label>
-          <div className="flex flex-wrap gap-2">
-            {availableTags.map(tag => (
-              <TagButton
-                key={tag}
-                tag={tag}
-                isSelected={formData.tags.includes(tag)}
-                onToggle={toggleTag}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex justify-end gap-3 mt-6">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg cursor-pointer"
-          >
-            Cancelar
-          </button>
-          <button
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors cursor-pointer"
-          >
-            {existingLink ? 'Guardar Cambios' : 'Crear Enlace'}
-          </button>
-        </div>
-      </form>
+      <LinkFormContent
+        formData={formData}
+        setFormData={setFormData}
+        availableTags={availableTags}
+        toggleTag={toggleTag}
+        onClose={onClose}
+        existingLink={existingLink}
+        handleSubmit={handleSubmit}
+      />
     </ModalLayout>
   );
 };

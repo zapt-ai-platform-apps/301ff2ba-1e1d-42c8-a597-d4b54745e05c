@@ -2,11 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-primary: 139 92 246;
+    --color-secondary: 14 165 233;
+    --color-background: 249 250 251;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
 @layer components {
+  .gradient-border {
+    @apply relative bg-white before:absolute before:-inset-[1px] before:rounded-2xl before:bg-gradient-to-r before:from-purple-500 before:to-cyan-400 before:content-[''] hover:before:opacity-100;
+    
+    &::before {
+      @apply opacity-0 transition-opacity duration-300;
+    }
+    
+    > div {
+      @apply relative h-full rounded-2xl bg-white;
+    }
+  }
+
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .smooth-transition {
+    @apply transition-all duration-300 ease-out;
   }
 }
